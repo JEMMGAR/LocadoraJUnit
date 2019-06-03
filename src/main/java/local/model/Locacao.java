@@ -38,6 +38,7 @@ public class Locacao {
 		return valor;
 	}
 	public void setValor(Double valor) {
+		
 		this.valor = valor;
 	}
 	public List<Filme> getFilmes() {

@@ -1,5 +1,10 @@
 package local.model;
 
+import javax.annotation.processing.FilerException;
+
+import local.exception.ClienteException;
+import local.exception.FilmeException;
+
 public class Filme {
 
 
@@ -21,6 +26,9 @@ public class Filme {
     }
 
     public void setNome(String nome) {
+    	if (nome.length() < 2 || nome.length() > 99){
+			throw new ClienteException("O nome do filme deve possuir entre 2 e 99 caracteres");
+		}
         this.nome = nome;
     }
 
@@ -29,6 +37,10 @@ public class Filme {
     }
 
     public void setEstoque(Integer estoque) {
+    	
+    	if (estoque == 0 || estoque > 99) {
+    		throw new FilmeException("Valor de estoque inválido");
+    	}
         this.estoque = estoque;
     }
 
@@ -37,6 +49,9 @@ public class Filme {
     }
 
     public void setPrecoLocacao(Double precoLocacao) {
+    	if (precoLocacao < 1 || precoLocacao > 9.99) {
+    		throw new FilmeException("Valor locação inválido");
+		}
         this.precoLocacao = precoLocacao;
     }
 }

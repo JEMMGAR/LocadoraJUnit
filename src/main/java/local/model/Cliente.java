@@ -35,7 +35,7 @@ public class Cliente {
 		if(!nome.contains(" ")){
 			throw new ClienteException("É necessário adicionar um sobrenome");
 		}
-		this.nome = nome;
+		this.nome = nome.trim();
 	}
 
 	@Override
